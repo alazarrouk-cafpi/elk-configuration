@@ -1,0 +1,34 @@
+---
+# Rule for checking CPU Percentage every minute
+name: Check Memory Percentage
+type: any
+index: "appservice-metrics-*"
+
+# Timeframe for query
+timestamp_field: data.time
+
+# Frequency rule specifics
+
+timeframe:
+  minutes: 15
+
+# The filter for the query
+filter:
+- range:
+    data.time:
+      gte: "now-10m/m"
+      lt: "now-9m/m"
+- range:
+    data.total:
+      gt: 10
+- term:
+    data.metricName.keyword: "MemoryPercentage"
+
+include:
+- data.time
+- data.metricName
+- data.total
+alert:
+- "email"
+email:
+- "alaazarrouk6799@gmail.com"

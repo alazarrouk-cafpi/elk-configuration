@@ -1,0 +1,7 @@
+name: "HTTP Requests Count Rule"
+type: "elastalert2.elastalert_modules.http_requests_spike.HttpRequestsCountRule"
+index: "appservice-httplogs-*"
+alert:
+- "email"
+email:
+- "alaazarrouk6799@gmail.com"

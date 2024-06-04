@@ -8,7 +8,7 @@ class HttpRequestsCountRule(RuleType):
     def __init__(self, *args):
         super(HttpRequestsCountRule, self).__init__(*args)
         # Load configuration
-        with open('elastalert2/config/config.yaml', 'r') as config_file:
+        with open('config/config.yaml', 'r') as config_file:
             self.config = yaml.safe_load(config_file)
         self.email_alerter = EmailAlerter(self.rules)
 
